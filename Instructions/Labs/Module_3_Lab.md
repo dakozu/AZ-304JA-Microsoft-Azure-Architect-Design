@@ -88,23 +88,23 @@ Windows Server 管理者の認証資格情報
 
 1. Azure portal で、**Cloud Shell** ウィンドウを閉じます。
 
-1. ラボ コンピューターから別のブラウザー タブを開き、[301-nested-vms-in-virtual-network Azure クイックスタート テンプレート](https://github.com/Azure/azure-quickstart-templates/tree/master/301-nested-vms-in-virtual-network) に移動して、「**Azure にデプロイする**」 を選択します。これにより、ブラウザーは自動的に Azure portal の**入れ子になった VM を持つ Hyper-V ホスト仮想マシン** ブレードにリダイレクトされます。
+1. ラボ コンピューターから別のブラウザー タブを開き、[301-nested-vms-in-virtual-network Azure クイックスタート テンプレート](https://github.com/Azure/azure-quickstart-templates/tree/master/301-nested-vms-in-virtual-network) に移動して、「**Azure にデプロイする**」 を選択します。これにより、ブラウザーは自動的に Azure portal の**Hyper-V Host Virtual Machine with nested VMs** ブレードにリダイレクトされます。
 
-1. Azure portal の**入れ子になった VM を持つ Hyper-V ホスト仮想マシン** ブレードで、次の設定を指定します (他の設定は既定値のままにします)。
+1. Azure portal の**Hyper-V Host Virtual Machine with nested VMs** ブレードで、次の設定を指定して 「**確認および作成**」 をクリックします (他の設定は既定値のままにします)。
 
     | 設定 | 値 | 
     | --- | --- |
     | サブスクリプション | このラボのために使用する Azure サブスクリプションの名前 |
     | リソース グループ | **az30308a-labRG** |
-    | ホストのパブリック IP アドレス名 | **az30308a-hv-vm-pip** |
-    | 仮想ネットワーク名 | **az30308a-hv-vnet** |
-    | ホスト ネットワークのインターフェイス 1 の名前 | **az30308a-hv-vm-nic1** |
-    | ホスト ネットワークのインターフェイス 2 の名前 | **az30308a-hv-vm-nic2** |
-    | ホスト仮想マシン名 | **az30308a-hv-vm** |
-    | ホスト管理者のユーザー名 | **Student** |
-    | ホスト管理者のパスワード | **Pa55w.rd1234** |
+    | Host Public IP Address Name | **az30308a-hv-vm-pip** |
+    | Virtual Network Name | **az30308a-hv-vnet** |
+    | Host Network Interface1Name | **az30308a-hv-vm-nic1** |
+    | Host Network Interface2Name | **az30308a-hv-vm-nic2** |
+    | Host Virtual Machine Name | **az30308a-hv-vm** |
+    | Host Admin Username | **Student** |
+    | Host Admin Password | **Pa55w.rd1234** |
 
-1. **入れ子になった VM を備えた Hyper-V ホスト仮想マシン** ブレードで、チェックボックス 「**上記の利用規約に同意します**」 を選択し、「**購入**」 を選択します。
+1. **Hyper-V Host Virtual Machine with nested VMs** ブレードで、チェックボックス 「**作成**」 を選択します。
 
     > **注**: デプロイが完了するのを待ちます。デプロイには約 10 分間かかる場合があります。
 
@@ -114,7 +114,7 @@ Windows Server 管理者の認証資格情報
 
 1. **az30308a-hv-vm** ブレードで、「**ネットワーク**」 を選択します。 
 
-1. **az30308a-hv-vm** で | **ネットワーク** ブレードで、**az30308a-hv-vm-nic1** を選択し、次に 「**受信ポート規則を追加する**」 を選択します。
+1. **az30308a-hv-vm** | **ネットワーク** ブレードで、**az30308a-hv-vm-nic1** を選択し、次に 「**受信ポート規則を追加する**」 を選択します。
 
     >**注**: 必ず、パブリック IP アドレスが割り当てられている **az30308a-hv-vm-nic1** の設定を変更してください。
 
@@ -123,63 +123,63 @@ Windows Server 管理者の認証資格情報
     | 設定 | 値 | 
     | --- | --- |
     | 宛先ポート範囲 | **3389** |
-    | プロトコル | **任意** |
+    | プロトコル | **Any** |
     | 名前 | **AllowRDPInBound** |
 
 1. 「**az30308a-hv-vm**」 ブレードで、「**概要**」 を選択します。 
 
-1. 「**az30308a-hv-vm**」 ブレードで、ドロップダウン メニューから 「**接続**」、「**RDP**」 を選択し、「**RDP ファイルのダウンロード**」 をクリックします。
+1. 「**az30308a-hv-vm**」 ブレードで、 「**接続**」ドロップダウン メニューから、「**RDP**」 を選択し、「**RDP ファイルのダウンロード**」 をクリックします。
 
-1. プロンプトが表示されたら、次の認証情報を入力します。
+1. ダウンロードしたファイルを開き、プロンプトが表示されたら次の認証情報を入力します。
 
     | 設定 | 値 | 
     | --- | --- |
     | ユーザー名 | **Student** |
     | パスワード | **Pa55w.rd1234** |
 
-1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で、「サーバーマネージャー」 ウィンドウの 「**ローカル サーバー**」 をクリックし、**IE セキュリティ強化の構成**ラベルの横にある 「**オン**」 リンクをクリックし、**IE セキュリティ強化の構成**ダイアログ ボックスで両方の 「**オフ**」 オプションを選択します 。
+1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で、「Server Manager」 ウィンドウの 「**Local Server**」 をクリックし、**IE Enhanced Security COnfiguration**ラベルの横にある 「**On**」 リンクをクリックし、**Internet Explorer Enhanced Security COnfiguration**ダイアログ ボックスで両方の 「**Off**」 オプションを選択します 。
 
 1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で、Internet Explorer を起動し、[Windows Serverの評価](https://www.microsoft.com/ja-jp/evalcenter/evaluate-windows-server-2019) を参照して、Windows Server 2019 **VHD** ファイルを **F:\VHDs** フォルダーにダウンロードします (最初にこのフォルダーを作成する必要があります)。 
 
-1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で、**Hyper-V マネージャー**を起動します。 
+1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で、**Hyper-V Manager**を起動します。 
 
-1. **Hyper-V マネージャー** コンソールで、**az30308a-hv-vm** ノードを選択し、「**新規**」 を選択し、カスケード メニューで 「**仮想マシン**」 を選択します。これにより、**新しい仮想マシン ウィザード**が起動します。 
+1. **Hyper-V Manager** コンソールで、**az30308a-hv-vm** ノードを選択し、「**New**」 を選択し、カスケード メニューで 「**Virtual Machine**」 を選択します。これにより、**New Virtual Machine Wizard**が起動します。 
 
-1. 「**新しい仮想マシン ウィザード**」 の 「**開始する前に**」 ページで、「**次へ >**」 を選択します。
+1. 「**New Virtual Machine Wizard**」 の 「**Before You Begin**」 ページで、「**Next >**」 を選択します。
 
-1. 「**新しい仮想マシン ウィザード**」 の 「**名前と場所を指定する**」 ページで、次の設定を指定し、「**次へ >**」 を選択します。
+1. 「**New Virtual Machine Wizard**」 の 「**Specify Name and Location**」 ページで、次の設定を指定し、「**Next >**」 を選択します。
 
     | 設定 | 値 | 
     | --- | --- |
-    | 名前 | **az30308a-vm1** | 
-    | 仮想マシンを別の場所に保存する | 選択済み | 
-    | 場所 | **F:\VMs** |
+    | Name | **az30308a-vm1** | 
+    | Store the virtual machine in a defferent location | 選択済み | 
+    | Location | **F:\VMs** |
 
     >**注**: 必ず **F:\VMs** フォルダーを作成してください。
 
-1. 「**新しい仮想マシン ウィザード**」 の 「**世代を指定**」 ページで、「**世代 1**」 オプションが選択されていることを確認し、「**次へ >**」 を選択します:
+1. 「**New Virtual Machine Wizard**」 の 「**Specify Generation**」 ページで、「**Generation 1**」 オプションが選択されていることを確認し、「**Next >**」 を選択します:
 
-1. 「**新しい仮想マシン ウィザード**」 の 「**メモリの割り当て**」 ページで、「**起動メモリ**」 を 「**2048**」 に設定し、「**次へ >**」 を選択します。
+1. 「**New Virtual Machine Wizard**」 の 「**Assign Memory**」 ページで、「**Startup Memory**」 を 「**2048**」 に設定し、「**Next >**」 を選択します。
 
-1. 「**新しい仮想マシン ウィザード**」 の 「**ネットワークを構成する**」 ページの 「**接続**」 ドロップダウン リストで、**NestedSwitch** を選択し、 「**次へ >**」 を選択します。
+1. 「**New Virtual Machine Wizard**」 の 「**Configure Network**」 ページの 「**Connection**」 ドロップダウン リストで、**NestedSwitch** を選択し、 「**Next >**」 を選択します。
 
-1. 「**新しい仮想マシン ウィザード**」 の 「**仮想ハード ディスクを接続する**」 ページで、オプション 「**既存の仮想ハード ディスクを使用する**」 を選択し、場所を **F:\VHDs** フォルダーにダウンロードした VHD ファイルに設定し、「**次へ >**」 を選択します。
+1. 「**New Virtual Machine Wizard**」 の 「**COnnect VIrtual Hard Disk**」 ページで、オプション 「**Use an existing virtual hard disk**」 を選択し、場所を **F:\VHDs** フォルダーにダウンロードした VHD ファイルに設定し、「**Next >**」 を選択します。
 
-1. 「**新しい仮想マシンウィザード**」 の 「**概要**」 ページで、「**仕上げ**」 を選択します。
+1. 「**New Virtual Machine Wizard**」 の 「**Summary**」 ページで、「**Finish**」 を選択します。
 
-1. **Hyper-V マネージャー** コンソールで、新しく作成した仮想マシンを選択し、「**開始**」 を選択します。 
+1. **Hyper-V Manager** コンソールで、新しく作成した仮想マシンを選択し、「**Start**」 を選択します。 
 
-1. **Hyper-V マネージャー** コンソールで、仮想マシンが実行されていることを確認し、「**接続**」 を選択します。 
+1. **Hyper-V Manager** コンソールで、仮想マシンが実行されていることを確認し、「**Connect**」 を選択します。 
 
-1. 「**az30308a-vm1** への仮想マシン接続」 ウィンドウの 「**こんにちは**」 ページで、「**次へ**」 を選択します。 
+1. 「**az30308a-vm1** - Virtual Machine Connection」 ウィンドウの 「**Hi there**」 ページで、「**Next**」 を選択します。 
 
-1. 「**az30308a-vm1** への仮想マシン接続」 ウィンドウの 「**ライセンス条項**」 ページで、「**承諾**」 を選択します。 
+1. 「**az30308a-vm1** - Virtual Machine Connection」 ウィンドウの 「**License terms**」 ページで、「**Accept**」 を選択します。 
 
-1. 「**az30308a-vm1** への仮想マシン接続」 ウィンドウの 「**設定をカスタマイズする**」 ページで、組み込みの管理者アカウントのパスワードを **Pa55w.rd1234** に設定し、「**終了**」 を選択します。 
+1. 「**az30308a-vm1** - Virtual Machine Connection」 ウィンドウの 「**Customize settings**」 ページで、組み込みの管理者アカウントのパスワードを **Pa55w.rd1234** に設定し、「**Finish**」 を選択します。 
 
-1. 「**az30308a-vm1** への仮想マシン接続」 ウィンドウで、新しく設定したパスワードを使用してサインインします。
+1. 「**az30308a-vm1** - Virtual Machine Connection」 ウィンドウで、新しく設定したパスワードを使用してサインインします。
 
-1. 「**az30308a-vm1** への仮想マシン接続」 ウィンドウで、Windows PowerShell を起動し、**管理者:** で**Windows PowerShell** ウィンドウで次を実行して、コンピューター名を設定します。 
+1. 「**az30308a-vm1** - Virtual Machine Connection」 ウィンドウで、Windows PowerShell **管理者権限** で起動し、**Windows PowerShell** ウィンドウで次を実行して、コンピューター名を設定します。 
 
    ```powershell
    Rename-Computer -NewName 'az30308a-vm1' -Restart
@@ -198,7 +198,7 @@ Windows Server 管理者の認証資格情報
 
 #### タスク 1: Hyper-V 環境を構成する
 
-1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で Internet Explorer を起動し、[Microsoft ダウンロード センター](https://aka.ms/migrate/script/hyperv) に移動して、構成 PowerShell スクリプトを Downloads フォルダーにダウンロードします。
+1. **az30308a-hv-vm** へのリモート デスクトップ セッション内で Internet Explorer を起動し、(https://aka.ms/migrate/script/hyperv) に移動して、構成 PowerShell スクリプトを Downloads フォルダーにダウンロードします。
 
     >**注**: スクリプトは次のタスクを実行します。
 
@@ -220,7 +220,7 @@ Windows Server 管理者の認証資格情報
 
 1. リモートデスクトップセッション内の **az30308a-hv-vm** へ、Windows PowerShell ISE を起動します。 
 
-1. **管理者**で**Windows PowerShell ISE** ウィンドウのコンソール ペインで次のコマンドを実行して、Zone.Identifier 代替データ ストリームを削除します。この場合、ファイルがインターネットからダウンロードされたことを示しています。
+1. **管理者権限**で**Windows PowerShell ISE** ウィンドウのコンソール ペインで次のコマンドを実行して、Zone.Identifier 代替データ ストリームを削除します。この場合、ファイルがインターネットからダウンロードされたことを示しています。
 
    ```powershell
    Unblock-File -Path C:\Users\Student\Downloads\MicrosoftAzureMigrate-Hyper-V.ps1
