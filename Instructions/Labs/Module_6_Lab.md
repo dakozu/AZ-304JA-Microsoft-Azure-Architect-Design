@@ -194,7 +194,7 @@ Windows Server 管理者の認証資格情報
    {
        class Program
        {
-           static void Main(string「] args)
+           static void Main(string[] args)
            {
                try 
                { 
